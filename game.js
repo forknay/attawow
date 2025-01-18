@@ -1,56 +1,68 @@
-import Player from './player.js'
-import Card from './card.js'
+export default class Game {
+    constructor(player_list, card_list) {
+        this.player_list = player_list;
+        this.card_list = card_list;
+        this.gameState = true;
+        this.playing = 0;
+    }
 
-let playerList = [];
-let cardList = [];
-let gameState = true;
+    gameStart() {
+        for (let player of this.player_list) {
+            let start_card = getRandomCard(this.card_list)
+            player.addCard(start_card);
+        }
+    }
 
+    gameTurn() {
+        let turn_card = getRandomCard(this.card_list);
+        turn_card.playSong();
+        
+        var counter = 5
+        const interval = setInterval(() => {
+            counter--;
 
-function gameSetup() {
-    const player1 = new Player(1, 0);
-    const player2 = new Player(2, 0);
+            if (counter <= 15 && counter >= 0) {
+                console.log(counter)
+            }
 
-    playerList.push(player1);
-    playerList.push(player2);
+            if (counter < 0 ) {
+                clearInterval(interval);
+                this.turnEnd();
+            }
+            //CHECK FOR IO FOR PLAYER ACTION
+            // if correct --> add card, else --> turn end
+        }, 1000);
+    }
+    
+    turnEnd() {
+        console.log(this.playing)
+        if (this.player_list[this.playing].getCount == 5) {
+            this.gameEnd();
+        } else {
+            this.playing++;
+            this.playing = this.playing % this.player_list.length;
+            this.gameTurn();
+        }
+    } 
 
-    const card1 = new Card("artist1", "song1", 2004);
-    const card2 = new Card("artist2", "song2", 2006);
-    const card3 = new Card("artist3", "song3", 1996);
-    const card4 = new Card("artist4", "song4", 2019);
-
-    cardList.push(card1);
-    cardList.push(card2);
-    cardList.push(card3);
-    cardList.push(card4);
-}
-
-
-function gameStart() {
-    for (let player of playerList) {
-        var i = Math.random(cardList.length);
-        player.addCard(cardList[i]);
-        cardList.splice(i, 1);
+    gameEnd() {
+        gameState = false;
+        console.log("Game Over!");
     }
 }
 
-async function turnTimer() {
-    var counter = 30;
-        
-    const interval = setInterval(() => {
-        console.log(counter);
-        counter--;
-    
-        if (counter < 0 ) {
-        clearInterval(interval);
+function getRandomCard(card_list) {
+    var i = Math.floor(Math.random() * card_list.length);
+    let temp_card = card_list[i];
+    card_list.splice(i, 1);
+    return temp_card;
+}
+
+function findIndex(card, card_list) {
+    for (var i = 0; i < card_list.length; i++) {
+        if (card.getYear() < card_list[i].getYear()) {
+            return i;
         }
-    }, 1000);
-
+    }
+    return i;
 }
-
-function gameEnd() {
-    gameState = false;
-    console.log("Game Over!");
-}
-
-gameSetup();
-gameStart();

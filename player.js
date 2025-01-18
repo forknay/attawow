@@ -17,4 +17,8 @@ export default class Player {
     getCount() {
         return this.num_card;
     }
+
+    getDeck() {
+        return this.cards;
+    }
 }

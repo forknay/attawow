@@ -1,19 +1,25 @@
 export default class Card {
-  constructor(artist, song, year) {
+  constructor(artist, title, year, song) {
     this.artist = artist;
-    this.song = song;
+    this.title = title;
     this.year = year;
+    this.song = song; //15secs
   }
 
   getArtist() {
     return this.artist;
   }
 
-  getSong() {
-    return this.song;
+  getTitle() {
+    return this.title;
   }
 
   getYear() {
     return this.year;
   }
+
+  playSong() {
+    console.log("banger")
+  }
+
 }
