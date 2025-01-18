@@ -4,11 +4,14 @@ const http = require("http");
 const { Server } = require("socket.io");
 const cors = require("cors");
 
+const cardIndex = document.getElementById("")
+
 
 app.use(cors());
 
 
 const server = http.createServer(app); //creating the server
+
 
 const io = new Server(server, {
     cors: {
