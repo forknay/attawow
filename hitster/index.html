@@ -78,9 +78,18 @@
           let x = document.getElementById("b1").innerHTML;
           choice.push(x);
           document.getElementById("b1").innerHTML = choice[choice.length - 1]+1;
-          var audio = new Audio('src/test.mp3');
+          var audio = new Audio('songs/song8.mp3');
           audio.play();
-          
+          var time = 15;
+          const pause = setInterval(() => {
+            time--;
+            document.getElementById("num").innerHTML = time;
+            if (time == 0) {
+              clearInterval(pause);
+              audio.pause();
+              
+            }
+          }, 1000);
         }
         
       </script>
