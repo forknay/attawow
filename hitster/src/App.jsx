@@ -1,10 +1,9 @@
 import './App.css';
-import Card from './Card';
+import Pack from './Pack';
 
 function App() {
   return (
-    <Card/>
-    
+    <Pack> </Pack>
   );
 }
 
