@@ -1,5 +1,8 @@
 # Core libraries
 numpy==1.25.1
+yarn
+express
+
 
 # Environment variables
 python-dotenv==1.0.0
