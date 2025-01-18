@@ -2,6 +2,7 @@ import './App.css';
 import io from 'socket.io-client'
 import {useEffect, useState} from 'react'
 const socket = io.connect("http://localhost:3001")
+const root = document.getElementById('root')
 
 function App() {
   //Room States
@@ -9,6 +10,7 @@ function App() {
 
   //Message States
   const [message, setMessage] = useState("");
+  const [index, setIndex] = useState("")
   const [messageReceived, setMessageReceived] = useState("");
 
   const joinRoom = () => {
@@ -16,6 +18,24 @@ function App() {
       socket.emit("join_room", room)
     }
   }
+
+  const sendList = () => {
+    const index_value = document.getElementById("b1").innerHTML;  // Get the value of the button
+  
+    socket.emit("button_index", { index: index_value });  // Emit the value with the room
+  };
+
+  const sendMessage = () => {
+    socket.emit("send_message", { message, room})
+  }
+  
+  root.addEventListener("click", e => {
+    
+    e.preventDefault();
+    const index_value = document.getElementById("b1").innerHTML;  // Get the value of the button
+    socket.emit("button_index", { index_value });  // Emit the value with the room
+
+  })
 }
 export default App;
 

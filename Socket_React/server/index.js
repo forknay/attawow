@@ -31,6 +31,10 @@ io.on("connection", (socket) => {
 
     socket.on("send_message", (data) => {
         socket.to(data.room).emit("received_message", data);
+    
+    socket.on("button_index", (data) => {
+        console.log("received", data)
+    })
     })
 })
 
