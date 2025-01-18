@@ -15,7 +15,24 @@ const io = new Server(server, {
         origin:"http://localhost:3000",
         methods:["GET", "POST"],
     },
-}) //important for backend manipulations
+}); //important for backend manipulations
+
+io.on("connection", (socket) => {
+    console.log(`User Connected: ${socket.id}`);
+
+    socket.on("join_room", (data) => {
+        socket.join(data); //data here is the room
+    })
+}); //triggers when someone connects
+
+
+io.on("connection", (socket) => {
+    console.log(`User Connected: ${socket.id}`)
+
+    socket.on("send_message", (data) => {
+        socket.to(data.room).emit("received_message", data);
+    })
+})
 
 server.listen(3001, () => {
     console.log("SERVER IS RUNNING")
