@@ -17,7 +17,7 @@
     bottom: 0%;
     width: 100%;
     align-content: stretch;
-    gap: 30px;
+    gap: 100px;
     
     }
     .card {
@@ -27,18 +27,6 @@
       font-size: 15px;
       line-height: 40px;
       
-    }
-    .square {
-      min-width: 50px;
-      height: 50px;
-      background-color: rgb(12, 0, 0);
-      color: white;
-      font-size: 15px;
-      line-height: 40px;
-      
-      align-items: center;
-      text-align: center;
-
     }
     
     </style>
@@ -51,37 +39,23 @@
    
     <div class="flex-container"> <!--Number card layout-->
       <!--Number of cards should be dynamic, determined by cards picked. Add a card element for each card picked--> 
-      <div class="square" id="b1" onclick="changecolor()" >1</div>
       <div class="card">
         <div id="C1N"></div>
         <div id="C1_Y" style="font-size: 30px;"></div>
         <div id="C1_A" style="font-size: 20px;"></div>
       </div>
-      <div class="square">1</div>
       <div class="card">c2</div>
-      <div class="square">1</div>
       <div class="card">c3</div>
-      <div class="square">1</div>
       <div class="card">c4</div>
-      <div class="square">1</div>
       <div class="card">c5</div>
-      <div class="square">1</div>
-
+      
       <script>// Values for the cards should be from the node js backend
         let N = ["Echoes in Rain", "Velvet Horizons", "Fragments of Tomorrow", "Neon Reverie", "Whispers of the Wild"];
         let Y = ["1928", "1932", "1936", "1940", "1944"];
         let A = ["Lyra", "Mira", "Aria", "Nova", "Stella"];
-        let choice = [9,8];
         document.getElementById("C1N").innerHTML = N[0];
         document.getElementById("C1_Y").innerHTML = Y[0];
         document.getElementById("C1_A").innerHTML = A[0];
-        function changecolor() {
-          document.getElementById("b1").style.backgroundColor = "red";
-          let x = document.getElementById("b1").innerHTML;
-          choice.push(x);
-          document.getElementById("b1").innerHTML = choice[choice.length - 1]+1;
-        }
-        
       </script>
     </div>
     <p id="num"></p>
