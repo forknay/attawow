@@ -1,15 +1,15 @@
+
 import React from 'react';
-var songTitle = "Card Title"
-var artist = "Artist"
-var year = "Year"
 
 
-function Card(){
+function Card(song){
     return(
         <div className="card">
-            <h2>{year}</h2>
-            <p>{songTitle}</p>
-            <p>{artist}</p>
+            <h2>{song.year}</h2>
+            <p>{song.title}</p>
+            <p>{song.artist}</p>
+            
+            
         </div>
     );
 
