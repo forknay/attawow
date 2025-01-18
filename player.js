@@ -3,7 +3,10 @@ export default class Player {
         this.id = id;
         this.cards = [];
         this.num_card = num_card;
+    }
 
+    getID() {
+        return this.id
     }
 
     addCard(card) {

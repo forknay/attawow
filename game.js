@@ -1,9 +1,9 @@
 import Player from './player.js'
 import Card from './card.js'
 
-var Turn;
-var playerList = [];
-var cardList = [];
+let playerList = [];
+let cardList = [];
+let gameState = true;
 
 
 function gameSetup() {
@@ -15,8 +15,8 @@ function gameSetup() {
 
     const card1 = new Card("artist1", "song1", 2004);
     const card2 = new Card("artist2", "song2", 2006);
-    const card3 = new Card("artist1", "song1", 1996);
-    const card4 = new Card("artist2", "song2", 2019);
+    const card3 = new Card("artist3", "song3", 1996);
+    const card4 = new Card("artist4", "song4", 2019);
 
     cardList.push(card1);
     cardList.push(card2);
@@ -33,32 +33,24 @@ function gameStart() {
     }
 }
 
+async function turnTimer() {
+    var counter = 30;
+        
+    const interval = setInterval(() => {
+        console.log(counter);
+        counter--;
+    
+        if (counter < 0 ) {
+        clearInterval(interval);
+        }
+    }, 1000);
 
-function gameContinue() {
-    Turn += 1;
 }
-
 
 function gameEnd() {
-
+    gameState = false;
+    console.log("Game Over!");
 }
-
-/*
-var timeLeft = 30;
-var elem = document.getElementById('some_div');
-    
-var timerId = setInterval(countdown, 1000);
-    
-function countdown() {
-    if (timeLeft == -1) {
-        clearTimeout(timerId);
-        doSomething();
-    } else {
-        elem.innerHTML = timeLeft + ' seconds remaining';
-        timeLeft--;
-    }
-}
-    */
 
 gameSetup();
 gameStart();
