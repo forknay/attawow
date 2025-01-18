@@ -44,7 +44,7 @@
     
   </head>
   <body>
-   
+  
      <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
    
@@ -78,6 +78,9 @@
           let x = document.getElementById("b1").innerHTML;
           choice.push(x);
           document.getElementById("b1").innerHTML = choice[choice.length - 1]+1;
+          var audio = new Audio('src/test.mp3');
+          audio.play();
+          
         }
         
       </script>
