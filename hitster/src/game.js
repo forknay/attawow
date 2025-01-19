@@ -10,9 +10,27 @@ export default class Game {
             for (let [id, player] of this.player_list) {
                 let start_card = getRandomCard(this.card_list)
                 player.addCard(0, start_card);
-                console.log(player)
+                console.log(player.getDeckLists())
+                console.log(player.getDeckLists())
             }
-            this.gameTurn();
+            //this.gameTurn();
+        }
+    }
+
+    gameTurnStart(){
+        let turn_card = getRandomCard(this.card_list);
+        let beat = new Audio(turn_card.song);
+        beat.play()
+        turn_card.playSong();
+    }
+
+    gameGuess(guess) {
+        var correct = findIndex(turn_card, Array.from(this.player_list.values())[this.playing].getDeck());
+
+        if (correct.includes(guess)) {
+            Array.from(this.player_list.values())[this.playing].addCard(guess, turn_card);
+        } else {
+            this.turnEnd();
         }
     }
 
