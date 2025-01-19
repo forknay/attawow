@@ -1,3 +1,4 @@
+
 const express = require('express');
 const path = require('path');
 
@@ -26,3 +27,8 @@ io.sockets.on('connection', newConnection);
 function newConnection(socket) {
   console.log('Server connection: ' + socket.id);
 }
+//socket.on('start', gamestart);
+
+//socket.on('move', gameturn);
+
+//io.sockets.emit('conclusion', endofturn);
