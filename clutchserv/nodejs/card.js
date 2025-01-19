@@ -1,4 +1,4 @@
-export default class Card {
+class Card {
   constructor(artist, title, year, song) {
     this.artist = artist;
     this.title = title;
@@ -23,3 +23,4 @@ export default class Card {
   }
 
 }
+module.exports = Card;

@@ -1,16 +1,16 @@
-export default class Game {
+class Game {
     constructor(player_list, card_list) {
         this.player_list = player_list;
         this.card_list = card_list;
         this.gameState = true;
-        this.playing = 0;
     }
 
     gameStart() {
         if (this.gameState == true) {
-            for (let player of this.player_list) {
+            for (let [id, player] of this.player_list) {
                 let start_card = getRandomCard(this.card_list)
                 player.addCard(start_card);
+                console.log(player)
             }
             this.gameTurn();
         }
@@ -41,11 +41,11 @@ export default class Game {
     
     turnEnd() {
         if (this.gameState == true) {
-            if (this.player_list[this.playing].getCount() == 5) {
+            if (Array.from(this.player_list.values())[this.playing].getCount() == 5) {
                 this.gameEnd();
             } else {
                 this.playing++;
-                this.playing = this.playing % this.player_list.length;
+                this.playing = this.playing % this.player_list.size;
 
                 var delay = 3;
                 const pause = setInterval(() => {
@@ -62,9 +62,11 @@ export default class Game {
 
     gameEnd() {
         this.gameState = false;
-        console.log("Game Over!\n" + this.player_list[this.playing].getID() + " won!\n");
+        console.log("Game Over!\n" + Array.from(this.player_list.ID())[this.playing] + " won!\n");
     }
 }
+
+module.exports = Game;
 
 function getRandomCard(card_list) {
     var i = Math.floor(Math.random() * card_list.length);

@@ -1,4 +1,4 @@
-export default class Player {
+class Player {
     constructor(id, num_card) {
         this.id = id;
         this.cards = [];
@@ -22,3 +22,5 @@ export default class Player {
         return this.cards;
     }
 }
+
+module.exports = Player;
