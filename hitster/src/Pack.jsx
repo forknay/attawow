@@ -3,7 +3,6 @@ import Card from "./Card";
 
 var P1 = [{title: "Echoes in Rain", year: "1928", artist: "Lyra"},
             {title: "Velvet Horizons", year: "1932", artist: "Mira"},
-            
             {title: "Neon Reverie", year: "1940", artist: "Nova"},
             {title: "Whispers of the Wild", year: "1944", artist: "Stella"}];
 
@@ -19,11 +18,22 @@ function Pack(){
         newPack.splice(2,0, {title: "Fragments of Tomorrow", year: "1936", artist: "Aria"})
         setPack(newPack);
     }
+
+    var bla = 0;
+    function buttonCard(item, i){
+        
+        return(
+            <>
+            <button id = {String(i)} onClick = {addCard}>add card</button>
+            <Card year = {item.year} title = {item.title} artist = {item.artist}/>
+            </>
+        )
+    }
     return(
         <>
-        <button onClick = {addCard}>add card</button>
-        {pack.map((item) => <Card year = {item.year} title = {item.title} artist = {item.artist}/>)}
         
+        {pack.map((item) => buttonCard(item, bla++))}
+        <button id = {String(bla)} onClick = {addCard}>add card</button>
         </>
         
     );
