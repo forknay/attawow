@@ -10,10 +10,12 @@ function App() {
 
   return (
     <>
+
+      <Pack className="pack"></Pack>
+      <Table></Table>
       
-      <Pack></Pack>
-      
-      <Table></Table>     
+     
+
      
       
     </>

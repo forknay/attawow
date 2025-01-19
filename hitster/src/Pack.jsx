@@ -73,19 +73,21 @@ function Pack(){
 
     function buttonCard(item, i){
 
-        return(
-            <>
-            <button id = {String(i)} onClick = {() => addCard(i,song)}>add card</button>
-            <GameCard year = {item.year} title = {item.title} artist = {item.artist}/>
-            </>
-        );
+        
+        
+    return(
+        <>
+        <button className="bouton" id = {String(i)} onClick = {() => addCard(i,song)}>add card</button>
+        <Card year = {item.year} title = {item.title} artist = {item.artist}/>
+        </>
+    )
     }
 
     return(
         <>
         <>
         {pack.map((item) => buttonCard(item, bla++))}
-        <button id = {String(bla)} onClick = {() => addCard(bla,song)}>add card</button>
+        <button className="bouton" id = {String(bla)} onClick = {() => addCard(bla,song)}>add card</button>
         </>
         <br/>
         <button onClick={start}>Play</button>
