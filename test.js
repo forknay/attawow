@@ -20,6 +20,19 @@ const card4 = new Card("artist4", "song4", 2019, "d");
 const card5 = new Card("artist5", "song5", 2011, "e");
 const card6 = new Card("artist6", "song6", 2012, "f");
 const card7 = new Card("artist7", "song7", 2016, "g");
+const card8 = new Card("artist1", "song1", 2004, "a");  
+const card9 = new Card("artist2", "song2", 2006, "b");
+const card10 = new Card("artist3", "song3", 1996, "c");
+const card11 = new Card("artist4", "song4", 2019, "d");
+const card12 = new Card("artist5", "song5", 2011, "e");
+const card13 = new Card("artist6", "song6", 2012, "f");
+const card14 = new Card("artist7", "song7", 2016, "g");
+const card15 = new Card("artist7", "song7", 2016, "g");
+
+player3.addCard(card15);
+player3.addCard(card12);
+player3.addCard(card11);
+player3.addCard(card14);
 
 card_list.push(card1);
 card_list.push(card2);
@@ -28,7 +41,14 @@ card_list.push(card4);
 card_list.push(card5);
 card_list.push(card6);
 card_list.push(card7);
+card_list.push(card8);
+card_list.push(card9);
+card_list.push(card10);
+card_list.push(card11);
+card_list.push(card12);
+card_list.push(card13);
+card_list.push(card14);
+card_list.push(card15);
 
 const game = new Game(player_list, card_list);
 game.gameStart();
-game.gameTurn();

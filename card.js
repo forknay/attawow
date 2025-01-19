@@ -19,7 +19,7 @@ export default class Card {
   }
 
   playSong() {
-    console.log("banger")
+    console.log("Song plays")
   }
 
 }

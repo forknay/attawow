@@ -7,47 +7,62 @@ export default class Game {
     }
 
     gameStart() {
-        for (let player of this.player_list) {
-            let start_card = getRandomCard(this.card_list)
-            player.addCard(start_card);
+        if (this.gameState == true) {
+            for (let player of this.player_list) {
+                let start_card = getRandomCard(this.card_list)
+                player.addCard(start_card);
+            }
+            this.gameTurn();
         }
     }
 
     gameTurn() {
-        let turn_card = getRandomCard(this.card_list);
-        turn_card.playSong();
-        
-        var counter = 5
-        const interval = setInterval(() => {
-            counter--;
+        if (this.gameState == true) {
+            let turn_card = getRandomCard(this.card_list);
+            turn_card.playSong();
+            
+            var counter = 30;
+            const interval = setInterval(() => {
+                counter--;
 
-            if (counter <= 15 && counter >= 0) {
-                console.log(counter)
-            }
+                if (counter <= 15 && counter >= 0) {
+                    console.log(counter)
+                }
 
-            if (counter < 0 ) {
-                clearInterval(interval);
-                this.turnEnd();
-            }
-            //CHECK FOR IO FOR PLAYER ACTION
-            // if correct --> add card, else --> turn end
-        }, 1000);
+                if (counter < 0 ) {
+                    clearInterval(interval);
+                    this.turnEnd();
+                }
+                //CHECK FOR IO FOR PLAYER ACTION
+                // if correct --> add card, else --> turn end
+            }, 1000);
+        }
     }
     
     turnEnd() {
-        console.log(this.playing)
-        if (this.player_list[this.playing].getCount == 5) {
-            this.gameEnd();
-        } else {
-            this.playing++;
-            this.playing = this.playing % this.player_list.length;
-            this.gameTurn();
+        if (this.gameState == true) {
+            if (this.player_list[this.playing].getCount() == 5) {
+                this.gameEnd();
+            } else {
+                this.playing++;
+                this.playing = this.playing % this.player_list.length;
+
+                var delay = 3;
+                const pause = setInterval(() => {
+                    delay--;
+
+                    if (delay < 0) {
+                        clearInterval(pause);
+                        this.gameTurn();
+                    }
+                }, 1000);
+            }
         }
-    } 
+    }
 
     gameEnd() {
-        gameState = false;
-        console.log("Game Over!");
+        this.gameState = false;
+        console.log("Game Over!\n" + this.player_list[this.playing].getID() + " won!\n");
     }
 }
 
