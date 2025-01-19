@@ -13,27 +13,29 @@ const P2 = [{title: "Echoes in Rain", year: "1928", artist: "Lyra"}]
 function Pack(){
     const [pack, setPack] = useState(P1);
 
-    function addCard(){
+    function addCard(index,song){
         let newPack = [...pack];
-        newPack.splice(2,0, {title: "Fragments of Tomorrow", year: "1936", artist: "Aria"})
+        newPack.splice(index,0, song)
         setPack(newPack);
     }
 
     var bla = 0;
+    var song = {title: "Fragments of Tomorrow", year: "1936", artist: "Aria"}
     function buttonCard(item, i){
         
-        return(
-            <>
-            <button id = {String(i)} onClick = {addCard}>add card</button>
-            <Card year = {item.year} title = {item.title} artist = {item.artist}/>
-            </>
-        )
+        
+    return(
+        <>
+        <button id = {String(i)} onClick = {() => addCard(i,song)}>add card</button>
+        <Card year = {item.year} title = {item.title} artist = {item.artist}/>
+        </>
+    )
     }
     return(
         <>
         
         {pack.map((item) => buttonCard(item, bla++))}
-        <button id = {String(bla)} onClick = {addCard}>add card</button>
+        <button id = {String(bla)} onClick = {() => addCard(bla,song)}>add card</button>
         </>
         
     );
