@@ -9,8 +9,8 @@ class Player {
         return this.id
     }
 
-    addCard(card) {
-        this.cards.push(card);
+    addCard(pos, card) {
+        this.cards.splice(pos, 0, card);
         this.num_card += 1;
     }
 

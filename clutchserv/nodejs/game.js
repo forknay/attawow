@@ -9,7 +9,7 @@ class Game {
         if (this.gameState == true) {
             for (let [id, player] of this.player_list) {
                 let start_card = getRandomCard(this.card_list)
-                player.addCard(start_card);
+                player.addCard(0, start_card);
                 console.log(player)
             }
             this.gameTurn();
@@ -21,20 +21,27 @@ class Game {
             let turn_card = getRandomCard(this.card_list);
             turn_card.playSong();
             
+            var guess;
+            var correct = findIndex(turn_card, Array.from(this.player_list.values())[this.playing].getDeck());
+
             var counter = 30;
             const interval = setInterval(() => {
                 counter--;
 
                 if (counter <= 15 && counter >= 0) {
-                    console.log(counter)
+                    
+                }
+
+                if (correct.includes(guess)) {
+                    Array.from(this.player_list.values())[this.playing].addCard(guess, turn_card);
+                } else {
+                    this.turnEnd();
                 }
 
                 if (counter < 0 ) {
                     clearInterval(interval);
                     this.turnEnd();
                 }
-                //CHECK FOR IO FOR PLAYER ACTION
-                // if correct --> add card, else --> turn end
             }, 1000);
         }
     }
@@ -76,10 +83,15 @@ function getRandomCard(card_list) {
 }
 
 function findIndex(card, card_list) {
+    var equal = [];
     for (var i = 0; i < card_list.length; i++) {
+        if (card.getYear() == card_list[i].getYear()) {
+            equal.push(i);
+        }
         if (card.getYear() < card_list[i].getYear()) {
-            return i;
+            equal.push[i];
+            return equal;
         }
     }
-    return i;
+    return equal;
 }

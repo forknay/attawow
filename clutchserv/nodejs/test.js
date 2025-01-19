@@ -1,6 +1,6 @@
-import Player from "./player.js";
-import Game from "./game.js";
-import Card from "./card.js";
+const Player = require("./player.js");
+const Game = require("./game.js");
+const Card = require("./card.js");
 
 const player_list = new Map();
 const card_list = [];
@@ -45,6 +45,7 @@ card_list.push(card13);
 card_list.push(card14);
 card_list.push(card15);
 
-//const game = new Game(player_list, card_list)
+console.log([1,2].includes(2));
 
-//game.gameStart();
+// const game = new Game(player_list, card_list)
+// game.gameStart();
