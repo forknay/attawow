@@ -29,11 +29,6 @@ const card13 = new Card("artist6", "song6", 2012, "f");
 const card14 = new Card("artist7", "song7", 2016, "g");
 const card15 = new Card("artist7", "song7", 2016, "g");
 
-player3.addCard(card15);
-player3.addCard(card12);
-player3.addCard(card11);
-player3.addCard(card14);
-
 card_list.push(card1);
 card_list.push(card2);
 card_list.push(card3);
