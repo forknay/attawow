@@ -17,7 +17,7 @@
     bottom: 0%;
     width: 100%;
     align-content: stretch;
-    gap: 30px;
+    gap: 20px;
     
     }
     .card {
@@ -25,18 +25,17 @@
       background-color: rgb(192, 18, 53);
       color: white;
       font-size: 15px;
-      line-height: 40px;
+      line-height: 20px;
       
     }
     .square {
       min-width: 50px;
-      height: 50px;
+      
       background-color: rgb(12, 0, 0);
       color: white;
-      font-size: 15px;
-      line-height: 40px;
-      
-      align-items: center;
+      font-size: 20px;
+      min-width: 100px;
+      line-height: 1000%;
       text-align: center;
 
     }
@@ -45,25 +44,10 @@
     
   </head>
   <body>
-   
+  
      <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-   
-    
-      <script>// Values for the cards should be from the node js backend
-        let N = ["Echoes in Rain", "Velvet Horizons", "Fragments of Tomorrow", "Neon Reverie", "Whispers of the Wild"];
-        let Y = ["1928", "1932", "1936", "1940", "1944"];
-        let A = ["Lyra", "Mira", "Aria", "Nova", "Stella"];
-        let choice = [9,8];
-        document.getElementById("C1N").innerHTML = N[0];
-        document.getElementById("C1_Y").innerHTML = Y[0];
-        document.getElementById("C1_A").innerHTML = A[0];
-        function changecolor() {
-          document.getElementById("b1").style.backgroundColor = "red";
-          let x = document.getElementById("b1").innerHTML;
-          choice.push(x);
-          document.getElementById("b1").innerHTML = choice[choice.length - 1]+1;
-        }
+
         
       </script>
     </div>
