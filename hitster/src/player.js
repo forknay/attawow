@@ -32,4 +32,14 @@ export default class Player {
     getDeck() {
         return this.cards;
     }
+
+    getDeckLists() {
+        var cardArray = []
+        for (let card of this.cards) {
+            if (card != null) {
+                cardArray.push(card.getList());
+            }
+        }
+        return cardArray;
+    }
 }

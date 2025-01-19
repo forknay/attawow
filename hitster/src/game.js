@@ -11,6 +11,7 @@ export default class Game {
                 let start_card = getRandomCard(this.card_list)
                 player.addCard(0, start_card);
                 console.log(player.getDeckLists())
+                console.log(player.getDeckLists())
             }
             //this.gameTurn();
         }
