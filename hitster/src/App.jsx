@@ -6,8 +6,9 @@ import Table from './Table';
 function App() {
   return (
     <>
-      <Pack></Pack>
+      <Pack className="pack"></Pack>
       <Table></Table>
+      
      
      
       

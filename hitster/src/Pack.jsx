@@ -26,7 +26,7 @@ function Pack(){
         
     return(
         <>
-        <button id = {String(i)} onClick = {() => addCard(i,song)}>add card</button>
+        <button className="bouton" id = {String(i)} onClick = {() => addCard(i,song)}>add card</button>
         <Card year = {item.year} title = {item.title} artist = {item.artist}/>
         </>
     )
@@ -35,7 +35,7 @@ function Pack(){
         <>
         
         {pack.map((item) => buttonCard(item, bla++))}
-        <button id = {String(bla)} onClick = {() => addCard(bla,song)}>add card</button>
+        <button className="bouton" id = {String(bla)} onClick = {() => addCard(bla,song)}>add card</button>
         </>
         
     );
