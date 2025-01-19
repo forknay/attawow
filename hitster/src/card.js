@@ -4,6 +4,12 @@ export default class Card {
     this.title = title;
     this.year = year;
     this.song = song; //15secs
+    this.list = {artist: this.artist, title: this.title, year: this.year};
+
+  }
+
+  getList() {
+    return this.list;
   }
 
   getArtist() {

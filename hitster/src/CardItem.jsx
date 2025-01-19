@@ -2,7 +2,7 @@
 import React from 'react';
 
 
-function Card(song){
+function GameCard(song){
     return(
         <div className="card">
             <h2>{song.year}</h2>
@@ -16,4 +16,4 @@ function Card(song){
 
 }
 
-export default Card
+export default GameCard;

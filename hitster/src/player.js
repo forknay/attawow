@@ -9,8 +9,19 @@ export default class Player {
         return this.id
     }
 
-    addCard(card) {
-        this.cards.push(card);
+    getList() {
+        return this.list;
+      }
+    getDeckLists() {
+            var cardArray = []
+            for (let card of this.cards) {
+                cardArray.push(card.getList());
+            }
+            return cardArray;
+        }
+
+    addCard(pos, card) {
+        this.cards.splice(pos, 0, card);
         this.num_card += 1;
     }
 
