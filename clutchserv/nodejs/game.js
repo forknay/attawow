@@ -10,9 +10,9 @@ export default class Game {
             for (let [id, player] of this.player_list) {
                 let start_card = getRandomCard(this.card_list)
                 player.addCard(0, start_card);
-                console.log(player)
+                console.log(player.getDeckLists())
             }
-            this.gameTurn();
+            //this.gameTurn();
         }
     }
 

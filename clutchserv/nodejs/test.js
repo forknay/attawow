@@ -2,18 +2,18 @@ import Player from "./player.js";
 import Game from "./game.js";
 import Card from "./card.js";
 
-const player_list = [];
+const player_list = new Map();
 const card_list = [];
 
 const player1 = new Player(1, 0);
 const player2 = new Player(2, 0);
 const player3 = new Player(3, 0);
 
-player_list.push(player1);
-player_list.push(player2);
-player_list.push(player3);
+player_list.set(player1.getID(), player1);
+player_list.set(player2.getID(), player2);
+player_list.set(player3.getID(), player3);
 
-const card1 = new Card("artist1", "song1", 2004, "a");  
+const card1 = new Card("artist1", "song1", 2004, "a");
 const card2 = new Card("artist2", "song2", 2006, "b");
 const card3 = new Card("artist3", "song3", 1996, "c");
 const card4 = new Card("artist4", "song4", 2019, "d");
