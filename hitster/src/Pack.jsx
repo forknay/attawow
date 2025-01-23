@@ -4,7 +4,7 @@ import GameCard from "./CardItem";
 import Player from "./player.js";
 import Game from "./game.js";
 import Card from "./card.js";
-import song1 from "/song1.mp3";
+
 
 const player_list = new Map();
 const card_list = [];
@@ -52,45 +52,38 @@ card_list.push(card15);
 const game = new Game(player_list, card_list);
 game.gameStart();
 
-var P1 = player1.getDeckLists();
-
+var P1 = [{}]
+//player1.getDeckLists();
 
 const P2 = [{title: "Echoes in Rain", year: "1928", artist: "Lyra"}]
 
 function Pack(){
     const [pack, setPack] = useState(P1);
+//    const [song, setSong] = useState(getRandomCard(card_list));
     
     function addCard(index,song){
         let newPack = [...pack];
         newPack.splice(index,0, song)
         setPack(newPack);
     }
-    let audio = new Audio(song1)
-
-    const start = () => {
-      audio.play()
-    }
+   
 
     function buttonCard(item, i){
 
-        
-        
-    return(
-        <>
-        <button className="bouton" id = {String(i)} onClick = {() => addCard(i,song)}>add card</button>
-        <Card year = {item.year} title = {item.title} artist = {item.artist}/>
-        </>
-    )
+        return(
+            <>
+            <button className="bouton" id = {String(i)} onClick = {() => addCard(i,song)}>add card</button>
+            <GameCard year = {item.year} title = {item.title} artist = {item.artist}/>
+            </>
+        );
     }
 
     return(
         <>
-        <>
+        
         {pack.map((item) => buttonCard(item, bla++))}
         <button className="bouton" id = {String(bla)} onClick = {() => addCard(bla,song)}>add card</button>
-        </>
-        <br/>
-        <button onClick={start}>Play</button>
+    
         </>
     );
 }
